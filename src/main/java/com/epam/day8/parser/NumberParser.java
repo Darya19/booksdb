@@ -5,19 +5,19 @@ import com.epam.day8.exception.BookServiceException;
 public class NumberParser {
 
     public int parseToInt(String value) throws BookServiceException {
-        try{
+        try {
             int intValue = Integer.parseInt(value);
-            return intValue;}
-        catch (NumberFormatException e) {
+            return intValue;
+        } catch (NumberFormatException e) {
             throw new BookServiceException("parsing issues", e);
         }
     }
 
     public double parseToDouble(String value) throws BookServiceException {
-        try{
+        try {
             double doubleValue = Double.parseDouble(value);
-            return doubleValue;}
-        catch (NumberFormatException e) {
+            return doubleValue;
+        } catch (NumberFormatException e) {
             throw new BookServiceException("parsing issues", e);
         }
     }

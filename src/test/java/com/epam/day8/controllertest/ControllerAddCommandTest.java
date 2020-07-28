@@ -3,12 +3,10 @@ package com.epam.day8.controllertest;
 import com.epam.day8.controller.BookController;
 import com.epam.day8.controller.response.Response;
 import com.epam.day8.controller.response.ResponseHelper;
-import com.epam.day8.model.entity.Book;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.testng.Assert.assertEquals;

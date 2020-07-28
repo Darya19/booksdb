@@ -14,7 +14,7 @@ public class BookService {
 
     BookListDaoImpl dao = new BookListDaoImpl();
 
-    public int addBook(String title, List<String> authors, String price, String pages) throws BookServiceException {
+    public int addBook(String title, String[] authors, String price, String pages) throws BookServiceException {
         NumberParser parser = new NumberParser();
         BookValidator validator = new BookValidator();
         BookBuilder builder = new BookBuilder();
@@ -35,7 +35,7 @@ public class BookService {
         }
     }
 
-    public int removeBook(String title, List<String> authors, String price, String pages) throws BookServiceException {
+    public int removeBook(String title, String[] authors, String price, String pages) throws BookServiceException {
         NumberParser parser = new NumberParser();
         BookValidator validator = new BookValidator();
         BookBuilder builder = new BookBuilder();
@@ -57,10 +57,12 @@ public class BookService {
     }
 
     public List<Book> findById(String... id) throws BookServiceException {
-        int[] intId = null;
+        int[] intId;
         if (id.length != 0) {
             NumberParser parser = new NumberParser();
             intId = parser.parseToIntMassive(id);
+        } else {
+            intId = new int[0];
         }
         try {
             List<Book> foundBooks = dao.findById(intId);
@@ -89,10 +91,12 @@ public class BookService {
     }
 
     public List<Book> findByPrice(String... price) throws BookServiceException {
-        double[] doublePrice = null;
+        double[] doublePrice;
         if (price.length != 0) {
             NumberParser parser = new NumberParser();
             doublePrice = parser.parseToDoubleMassive(price);
+        } else {
+            doublePrice = new double[0];
         }
         try {
             List<Book> foundBooks = dao.findByPrice(doublePrice);
@@ -103,10 +107,12 @@ public class BookService {
     }
 
     public List<Book> findByPages(String... pages) throws BookServiceException {
-        int[] intPages = null;
+        int[] intPages;
         if (pages.length != 0) {
             NumberParser parser = new NumberParser();
             intPages = parser.parseToIntMassive(pages);
+        } else {
+            intPages = new int[0];
         }
         try {
             List<Book> foundBooks = dao.findByPages(intPages);

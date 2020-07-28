@@ -1,7 +1,5 @@
 package com.epam.day8.validator;
 
-import java.util.List;
-
 public class BookValidator {
 
     private final int pagesMaxValue = 1000;
@@ -25,7 +23,7 @@ public class BookValidator {
         return title.length() > titleMinLength && title.length() < titleMaxLength;
     }
 
-    public boolean isAuthorsListValid(List<String> authors) {
-        return authors.size() >= authorsMinNumber && authors.size() < authorsMaxNumber;
+    public boolean isAuthorsListValid(String[] authors) {
+        return authors.length >= authorsMinNumber && authors.length < authorsMaxNumber;
     }
 }

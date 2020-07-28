@@ -33,6 +33,6 @@ public class ControllerEmptyCommandTest {
         Map<String, String[]> requestData = new HashMap<>();
         Response actual = controller.doGet(null, requestData);
         Response expected = ResponseHelper.makeErrorResponse("Command don't set");
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 }

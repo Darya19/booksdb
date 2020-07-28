@@ -10,68 +10,35 @@ import java.util.Map;
 
 public class StaticDataProvider {
 
-//    @DataProvider(name = "updated archive")
-//    public static Object[] listOfBooks() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("Alan Alexander Milne");
-//        authors.add("P.G.Wodehouse");
-//        bookList.add(new Book(1, "Winnie-the-Pooh", authors, 458.96, 194));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(6, "Harry Potter and the chamber of secrets", authors, 942.38, 615));
-//        return new Object[]{bookList};
-//    }
-//
-//    @DataProvider(name = "updated archive-2")
-//    public static Object[] books() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        return new Object[]{bookList};
-//    }
-//
-   @DataProvider(name = "invalid book")
-   public static Object[] invalidBooks() {
+    @DataProvider(name = "all books")
+    public static Object[] listOfBooks() {
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(1, "Winnie-the-Pooh",
+                new String[]{"Alan Alexander Milne", "P.G.Wodehouse"}, 458.96, 194));
+        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone",
+                new String[]{"J.K. Rowling"}, 780.8, 219));
+        bookList.add(new Book(3, "Airport", new String[]{"Arthur Hailey"}, 746.36, 277));
+        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
+                new String[]{"Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"}, 236.99, 312));
+        bookList.add(new Book(5, "Ralph Johnson: Complete Work",
+                new String[]{"Ralph Johnson"}, 236.99, 448));
+        bookList.add(new Book(6, "Граф Монте-Кристо", new String[]{"Александр Дюма"}, 236.523, 619));
+        bookList.add(new Book(7, "The Sunny Side", new String[]{"Alan Alexander Milne"}, 361.02, 236));
+        bookList.add(new Book(8, "Hotel", new String[]{"Arthur Hailey"}, 450.211, 425));
+        return new Object[]{bookList};
+    }
+
+    @DataProvider(name = "invalid book")
+    public static Object[] invalidBooks() {
         Map<String, String[]> book = new HashMap<>();
         book.put("title", new String[]{"Harry      Potter a  nd the chamber of secrets111111111000  001111111100 0  0014444" +
                 "55558963ggffggnnnnbggd"});
         book.put("authors", new String[]{"J.K. Rowling"});
         book.put("price", new String[]{"942.38"});
-        book.put("pages", new  String[]{"615"});
+        book.put("pages", new String[]{"615"});
         Map<String, String[]> book1 = new HashMap<>();
         book1.put("title", new String[]{"Ha"});
-        book1.put("authors", new String[]{ "J.K. Rowling"});
+        book1.put("authors", new String[]{"J.K. Rowling"});
         book1.put("price", new String[]{"942.38"});
         book1.put("pages", new String[]{"615"});
         Map<String, String[]> book2 = new HashMap<>();
@@ -106,123 +73,91 @@ public class StaticDataProvider {
     public static Object[] incorrectBooks() {
         Map<String, String[]> book = new HashMap<>();
         book.put("title", new String[]{"Harry Potter a  nd the chamber of secrets"});
-        book.put("authors",  new String[]{"J.K. Rowling"});
-        book.put("price",  new String[]{"number"});
-        book.put("pages",  new String[]{"615"});
+        book.put("authors", new String[]{"J.K. Rowling"});
+        book.put("price", new String[]{"number"});
+        book.put("pages", new String[]{"615"});
         Map<String, String[]> book1 = new HashMap<>();
-        book1.put("title",  new String[]{"Ha"});
-        book1.put("authors",  new String[]{"J.K. Rowling"});
-        book1.put("price",  new String[]{"942.38"});
-        book1.put("pages",  new String[]{"number"});
+        book1.put("title", new String[]{"Ha"});
+        book1.put("authors", new String[]{"J.K. Rowling"});
+        book1.put("price", new String[]{"942.38"});
+        book1.put("pages", new String[]{"number"});
         Map<String, String[]> book2 = new HashMap<>();
-        book2.put("title",  new String[]{"Harry Potter and the chamber of secrets"});
-        book2.put("authors",  new String[]{""});
-        book2.put("price",  new String[]{"number"});
-        book2.put("pages",  new String[]{"number"});
+        book2.put("title", new String[]{"Harry Potter and the chamber of secrets"});
+        book2.put("authors", new String[]{""});
+        book2.put("price", new String[]{"number"});
+        book2.put("pages", new String[]{"number"});
         return new Object[]{book, book1, book2};
     }
-//
-//    @DataProvider(name = "sorted archive")
-//    public static Object[] sortByIdAndPages() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("Alan Alexander Milne");
-//        authors.add("P.G.Wodehouse");
-//        bookList.add(new Book(1, "Winnie-the-Pooh", authors, 458.96, 194));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        return new Object[]{bookList};
-//    }
-//
-//    @DataProvider(name = "sorted archive-2")
-//    public static Object[] sortByTitle() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        authors = new ArrayList<>();
-//        authors.add("Alan Alexander Milne");
-//        authors.add("P.G.Wodehouse");
-//        bookList.add(new Book(1, "Winnie-the-Pooh", authors, 458.96, 194));
-//        return new Object[]{bookList};
-//    }
-//
-//    @DataProvider(name = "sorted archive-3")
-//    public static Object[] sortByAuthor() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("Alan Alexander Milne");
-//        authors.add("P.G.Wodehouse");
-//        bookList.add(new Book(1, "Winnie-the-Pooh", authors, 458.96, 194));
-//        authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        return new Object[]{bookList};
-//    }
-//
-//    @DataProvider(name = "sorted archive-4")
-//    public static Object[] sortByPrice() {
-//        List<Book> bookList = new ArrayList<>();
-//        List<String> authors = new ArrayList<>();
-//        authors.add("Erich Gamma");
-//        authors.add("Richard Helm");
-//        authors.add("Ralph Johnson");
-//        authors.add("John Vlissides");
-//        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
-//                authors, 236.99, 312));
-//        authors = new ArrayList<>();
-//        authors.add("Ralph Johnson");
-//        bookList.add(new Book(5, "Ralph Johnson: Complete Works", authors, 236.99, 448));
-//        authors = new ArrayList<>();
-//        authors.add("Alan Alexander Milne");
-//        authors.add("P.G.Wodehouse");
-//        bookList.add(new Book(1, "Winnie-the-Pooh", authors, 458.96, 194));
-//        authors = new ArrayList<>();
-//        authors.add("Arthur Hailey");
-//        bookList.add(new Book(3, "Airport", authors, 746.36, 277));
-//        authors = new ArrayList<>();
-//        authors.add("J.K. Rowling");
-//        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
-//        return new Object[]{bookList};
-//    }
+
+    @DataProvider(name = "sorted by title archive")
+    public static Object[] sortByTitle() {
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(3, "Airport", new String[]{"Arthur Hailey"}, 746.36, 277));
+        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
+                new String[]{"Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"}, 236.99, 312));
+        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone",
+                new String[]{"J.K. Rowling"}, 780.8, 219));
+        bookList.add(new Book(8, "Hotel", new String[]{"Arthur Hailey"}, 450.211, 425));
+        bookList.add(new Book(5, "Ralph Johnson: Complete Work",
+                new String[]{"Ralph Johnson"}, 236.99, 448));
+        bookList.add(new Book(7, "The Sunny Side", new String[]{"Alan Alexander Milne"}, 361.02, 236));
+        bookList.add(new Book(1, "Winnie-the-Pooh",
+                new String[]{"Alan Alexander Milne", "P.G.Wodehouse"}, 458.96, 194));
+        bookList.add(new Book(6, "Граф Монте-Кристо", new String[]{"Александр Дюма"}, 236.523, 619));
+        return new Object[]{bookList};
+    }
+
+    @DataProvider(name = "sorted by authors archive")
+    public static Object[] sortByAuthor() {
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(7, "The Sunny Side", new String[]{"Alan Alexander Milne"}, 361.02, 236));
+        bookList.add(new Book(1, "Winnie-the-Pooh",
+                new String[]{"Alan Alexander Milne", "P.G.Wodehouse"}, 458.96, 194));
+        bookList.add(new Book(3, "Airport", new String[]{"Arthur Hailey"}, 746.36, 277));
+        bookList.add(new Book(8, "Hotel", new String[]{"Arthur Hailey"}, 450.211, 425));
+        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
+                new String[]{"Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"}, 236.99, 312));
+        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone",
+                new String[]{"J.K. Rowling"}, 780.8, 219));
+        bookList.add(new Book(5, "Ralph Johnson: Complete Work",
+                new String[]{"Ralph Johnson"}, 236.99, 448));
+        bookList.add(new Book(6, "Граф Монте-Кристо", new String[]{"Александр Дюма"}, 236.523, 619));
+        return new Object[]{bookList};
+    }
+
+    @DataProvider(name = "sorted by price archive")
+    public static Object[] sortByPrice() {
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(6, "Граф Монте-Кристо", new String[]{"Александр Дюма"}, 236.523, 619));
+        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
+                new String[]{"Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"}, 236.99, 312));
+        bookList.add(new Book(5, "Ralph Johnson: Complete Work",
+                new String[]{"Ralph Johnson"}, 236.99, 448));
+        bookList.add(new Book(7, "The Sunny Side", new String[]{"Alan Alexander Milne"}, 361.02, 236));
+        bookList.add(new Book(8, "Hotel", new String[]{"Arthur Hailey"}, 450.211, 425));
+        bookList.add(new Book(1, "Winnie-the-Pooh",
+                new String[]{"Alan Alexander Milne", "P.G.Wodehouse"}, 458.96, 194));
+        bookList.add(new Book(3, "Airport", new String[]{"Arthur Hailey"}, 746.36, 277));
+        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone",
+                new String[]{"J.K. Rowling"}, 780.8, 219));
+        return new Object[]{bookList};
+    }
+
+    @DataProvider(name = "sorted by pages archive")
+    public static Object[] sortByPages() {
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(1, "Winnie-the-Pooh",
+                new String[]{"Alan Alexander Milne", "P.G.Wodehouse"}, 458.96, 194));
+        bookList.add(new Book(2, "Harry Potter and the Philosopher’s Stone",
+                new String[]{"J.K. Rowling"}, 780.8, 219));
+        bookList.add(new Book(7, "The Sunny Side", new String[]{"Alan Alexander Milne"}, 361.02, 236));
+        bookList.add(new Book(3, "Airport", new String[]{"Arthur Hailey"}, 746.36, 277));
+        bookList.add(new Book(4, "Design Patterns: Elements of Reusable Object-Oriented Software",
+                new String[]{"Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"}, 236.99, 312));
+        bookList.add(new Book(8, "Hotel", new String[]{"Arthur Hailey"}, 450.211, 425));
+        bookList.add(new Book(5, "Ralph Johnson: Complete Work",
+                new String[]{"Ralph Johnson"}, 236.99, 448));
+        bookList.add(new Book(6, "Граф Монте-Кристо", new String[]{"Александр Дюма"}, 236.523, 619));
+        return new Object[]{bookList};
+    }
 }
